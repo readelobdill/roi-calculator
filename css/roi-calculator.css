@@ -1,0 +1,30 @@
+#roi-calculator-container{
+	width: 400px;
+}
+
+#roi-calculator-container h3{
+	margin: 0;
+}	
+
+#roi-calculator{
+	padding: 20px 0;
+	width: 100%;
+}
+
+#roi-calculator input, #roi-calculator select{
+	width: 90%;
+	margin-bottom: 15px;
+}
+
+#roi-results-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#roi-results-table tr td{
+	border: 1px solid grey;
+}
+
+#roi-results-table tr td.savings-name{
+	text-align: right;
+}

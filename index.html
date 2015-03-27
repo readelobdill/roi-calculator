@@ -8,19 +8,45 @@
     <script src="js/roi-calculator.js"></script>
 </head>
 <body>
-    <div>
+    <div id="roi-calculator-container">
+        <h3>ROI Calculator</h3>
     	<form id="roi-calculator">
+            <select id="stateSelector" name="stateSelector"></select>
+
+            <label name="numberSnowplows">Number of Snowplows</label>
+            <input name="numberSnowplows" type="number" value="901" min="0" max="2000" required/>
+
 	    	<label name="annualBrineGallons">Annual Brine Gallons</label>
 	    	<input name="annualBrineGallons" type="number" value="17000000" required/>
 
-	    	<label name="brineGallonCost">Annual Brine Gallons</label>
-	    	<input name="brineGallonCost" type="number" value="0.21" required/>
+            <label name="aggregateLandMiles">Aggregate Land Miles</label>
+            <input name="aggregateLandMiles" type="number" value="50000" min="0" required/>
 
-	    	<label name="numberSnowplows">Number of Snowplows</label>
-	    	<input name="numberSnowplows" type="number" value="901" required/>
+            <label name="brineGallonCost">Brine Gallon Cost</label>
+            <input name="brineGallonCost" type="number" value="0.21" step="any" required/>
 
-	    	<button type="submit">Submit</button>
+	    	<button type="submit">Calculate</button>
     	</form>
+
+        <table id="roi-results-table">
+            <th>ANNUALIZED SAVINGS</th>
+            <tr>
+                <td></td>
+                <td>Yearly Savings</td>
+            </tr>
+            <tr>
+                <td class="savings-name">Direct Savings</td>
+                <td class="direct-savings-value">$</td>
+            </tr>
+            <tr>
+                <td class="savings-name">Inirect Savings</td>
+                <td class="indirect-savings-value">$</td>
+            </tr>
+            <tr>
+                <td class="savings-name">Combined Savings</td>
+                <td class="combined-savings-value">$</td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
