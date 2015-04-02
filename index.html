@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/roi-calculator.css">
     <script src="libs/jquery.min.js"></script>
     <script src="libs/lodash.js"></script>
+    <script src="libs/jsPDF.js"></script>
     <script src="js/roi-calculator.js"></script>
 </head>
 <body>
@@ -14,13 +15,16 @@
             <select id="stateSelector" name="stateSelector"></select>
 
             <label name="numberSnowplows">Number of Snowplows</label>
-            <input name="numberSnowplows" type="number" value="901" min="0" max="2000" required/>
+            <input name="numberSnowplows" type="number" value="900" min="0" max="2000" step="any" required/>
+
+            <label name="additionalVehicles">Annual Brine Gallons</label>
+            <input name="additionalVehicles" type="number" value="100" step="any" required/>
 
 	    	<label name="annualBrineGallons">Annual Brine Gallons</label>
-	    	<input name="annualBrineGallons" type="number" value="17000000" required/>
+	    	<input name="annualBrineGallons" type="number" value="18000000" step="any" required/>
 
             <label name="aggregateLandMiles">Aggregate Land Miles</label>
-            <input name="aggregateLandMiles" type="number" value="50000" min="0" required/>
+            <input name="aggregateLandMiles" type="number" value="50000" min="0" step="any" required/>
 
             <label name="brineGallonCost">Brine Gallon Cost</label>
             <input name="brineGallonCost" type="number" value="0.21" step="any" required/>
