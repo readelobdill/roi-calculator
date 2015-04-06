@@ -6,6 +6,8 @@
     <script src="libs/jquery.min.js"></script>
     <script src="libs/lodash.js"></script>
     <script src="libs/jsPDF.js"></script>
+    <script src="libs/flot.js"></script>
+    <script src="libs/flot.canvas.js"></script>
     <script src="js/roi-calculator.js"></script>
 </head>
 <body>
@@ -17,8 +19,11 @@
             <label name="numberSnowplows">Number of Snowplows</label>
             <input name="numberSnowplows" type="number" value="900" min="0" max="2000" step="any" required/>
 
-            <label name="additionalVehicles">Annual Brine Gallons</label>
-            <input name="additionalVehicles" type="number" value="100" step="any" required/>
+            <label name="additionalVehicles">Additional Vehicles Exposed to Brine</label>
+            <input name="additionalVehicles" type="number" value="109" step="any" required/>
+
+            <label name="brineMakingFacilities">Number of Brine Making Facilities</label>
+            <input name="brineMakingFacilities" type="number" value="100" step="any" required/>
 
 	    	<label name="annualBrineGallons">Annual Brine Gallons</label>
 	    	<input name="annualBrineGallons" type="number" value="18000000" step="any" required/>
@@ -51,6 +56,7 @@
                 <td class="combined-savings-value">$</td>
             </tr>
         </table>
+        <button id="roi-pdf-download" disabled="disabled">Download PDF</button>
     </div>
 </body>
 </html>
