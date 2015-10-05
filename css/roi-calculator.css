@@ -1,41 +1,73 @@
 body{
-	background: rgb(235,235,235);
+	/*background: rgb(235,235,235);*/
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;        /* Firefox, other Gecko */
+	box-sizing: border-box;   
 }
 #roi-calculator-container{
 	width: 100%;
 	max-width: 400px;
 	min-width: 250px;
 	margin: 0 auto;
-	padding: 20px;
 	font-family: Helvetica;
-	border: 2px solid rgb(233, 88, 8);
-	background: white;
 	color: #55565a;
+}
+
+#roi-form-container{
+	border: 8px solid rgb(249, 86, 14);
+	background: white;
+}
+
+#roi-header-container{
+	padding: 10px 10px 5px 20px;
+	background: rgb(249, 86, 14);
+	overflow: hidden;
 }
 
 #roi-calculator-container h3{
 	margin: 0;
-}	
+	color: white;
+	font-size: 18px;
+}
 
 #roi-calculator{
 	padding: 20px 0;
-	width: 100%;
+	width: 85%;
+	margin: 0 auto;
+}
+
+#roi-calculator label{
+	color: rgb(167, 167, 167);
+	font-size: 14px;
 }
 
 #roi-calculator input, #roi-calculator select{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;        /* Firefox, other Gecko */
+	box-sizing: border-box;   
 	width: 100%;
-	height: 22px;
+	margin: 0 auto 15px auto;
+	height: 55px;
 	margin-bottom: 15px;
 	text-align: right;
 	font-size: 18px;
 	color: #55565a;
 	margin-top: 5px;
-	padding: 3px 0px;
+	padding: 10px;
+	background: rgb(232, 232, 232);
+	text-align: left;
+	font-size: 32px;
+	color: rgb(102, 102, 102);
+	box-shadow: none;
+	border: none;
+	font-weight: bold;
+	vertical-align: middle;
 }
 
 #roi-calculator select{
-	height: 35px;
-	background: white;
+	padding: none;
+	-webkit-appearance: none;
+	border-radius: 0px;
 }
 
 #roi-calculator-container button{
@@ -49,32 +81,65 @@ body{
 	color: #55565a;
 }
 
-#roi-calculate-button{
-	float: right;
-	margin-bottom: 25px;
+#roi-calculator-container #roi-calculate-button{
+	width: 100%;
+	background: rgb(249, 86, 14);
+	height: 45px;
+	color: white;
+	padding: 10px 0px;
 }
 
 #roi-results-table {
-	border-collapse: collapse;
+	border: 8px solid rgb(249, 86, 14);;
+	background: white;
+	margin-top: 20px;
 	border-spacing: 0;
 	margin-bottom: 25px;
 	width: 100%;
-	padding-bottom: 10px;
 	text-align: left;
+	position: relative;
+	padding: 50px 10px 10px 10px;
+}
+
+#roi-results-table th{
+	color: rgb(102, 102, 102);
+	position: absolute;
+	width: 100%;
+	top: 5px;
+	font-size: 22px;
+	text-align: center;
+	padding: 10px 0px;
 }
 
 #roi-results-table tr td{
-	border: 1px solid grey;
+	border: 1px solid rgb(224, 224, 224);
 	padding: 6px;
+	color: rgb(102, 102, 102);
+}
+
+#roi-results-table tr td.left{
+	width: 25%;
+}
+
+#roi-results-table tr td.right{
+	width: 75%;
+	font-size: 30px;
+	padding-left: 10px;
 }
 
 #roi-results-table tr td.savings-name{
-	text-align: right;
+	text-align: left;
 }
 
-#roi-results-table .combined-savings{
+#roi-results-table .combined-savings, #roi-results-table .roi-savings{
 	font-weight: bold;
+	background: rgb(249, 86, 14);
 }
+
+#roi-results-table .combined-savings td, #roi-results-table .roi-savings td{
+	color: white;
+}
+
 
 #roi-show-download-modal{
 	color: black;
@@ -126,6 +191,10 @@ body{
 	margin-top: 30px;
 }
 
+#roi-download-modal h3{
+	color: grey;
+}
+
 #roi-download-modal h4{
 	font-size: 16px;
 	margin-bottom: 5px;
@@ -133,14 +202,18 @@ body{
 
 #roi-download-modal p{
 	font-size: 14px;
+	line-height: 20px;
+	padding: 0px 0px 5px 0px;
 }
 
 #roi-download-modal ul{
 	padding-left: 15px;
+	padding: 0px;
 }
 
 #roi-download-modal ul li{
 	font-size: 14px;
+	padding: 0px;
 }
 
 #roi-download-modal form, #roi-download-modal .enter-info-prompt{
@@ -162,9 +235,6 @@ body{
 	font-size: 14px;
 }
 
-#roi-pdf-download{
-}
-
 #roi-download-modal-footer {
 	background: grey;
 	height: 30px;
@@ -177,4 +247,5 @@ body{
 	line-height: 30px;
 	color: white;
 	text-align: center;
+	font-size: 18px;
 }

@@ -12,52 +12,53 @@
 </head>
 <body>
     <div id="roi-calculator-container">
-        <h3>ROI CALCULATOR</h3>
-    	<form id="roi-calculator">
-            <label name="stateSelector">State evaluating cost benefit:</label>
-            <select id="stateSelector" name="stateSelector" value="Montana"></select>
+        <div id="roi-form-container">
+            <div id="roi-header-container">
+                <h3>CORROSION REDUCTION CALCULATOR</h3>
+            </div>
+        	<form id="roi-calculator">
+                <label name="stateSelector">State evaluating cost benefit:</label>
+                <select id="stateSelector" name="stateSelector" value="Montana"></select>
 
-            <label name="numberSnowplows">Number of snowplows in fleet: <em>exposed to salt brine (23% NaCl)</em></label>
-            <input name="numberSnowplows" type="number" value="900" min="0" max="2000" step="any" required/>
+                <label name="numberSnowplows">Number of snowplows in fleet exposed <br/>to salt brine (23% NaCl):</label>
+                <input name="numberSnowplows" type="number" value="163" min="0" max="2000" step="any" required/>
 
-            <label name="additionalVehicles">Additional maintenance vehicles exposed to brine:</label>
-            <input name="additionalVehicles" type="number" value="109" min="0" step="any" required/>
+                <label name="additionalVehicles">Additional maintenance vehicles <br/>exposed to brine:</label>
+                <input name="additionalVehicles" type="number" value="82" min="0" step="any" required/>
 
-            <label name="brineMakingFacilities">Number of brine making facilities:</label>
-            <input name="brineMakingFacilities" type="number" value="100" min="0" step="any" required/>
+                <label name="brineMakingFacilities">Number of brine making facilities:</label>
+                <input name="brineMakingFacilities" type="number" value="5" min="0" step="any" required/>
 
-	    	<label name="annualBrineGallons">Average annual useage of brine <em>(gallons)</em>:</label>
-	    	<input name="annualBrineGallons" type="number" value="18000000" step="any" required/>
+    	    	<label name="annualBrineGallons">Annual useage of brine <em>(gallons)</em>:</label>
+    	    	<input name="annualBrineGallons" type="number" value="5791657" step="any" required/>
 
-            <label name="brineApplicationRate">Brine application rate <em>(gallons per lane mile)</em>:</label>
-            <input name="brineApplicationRate" type="number" value="20" min="0" step="any" required/>
+                <label name="brineApplicationRate">Brine application rate <br/><em>(gallons per lane mile)</em>:</label>
+                <input name="brineApplicationRate" type="number" value="50" min="0" step="any" required/>
 
-            <label name="aggregateLandMiles">Aggregate lane miles treated with brine annually:</label>
-            <input name="aggregateLandMiles" type="number" value="50000" min="0" step="any" required/>
+                <label name="brineGallonCost">Cost per Gallon of brine <br/>(prior to adding inhibitor):</label>
+                <input name="brineGallonCost" type="number" value="0.13" min="0" step="0.01" required/>
 
-            <label name="brineGallonCost">Cost per Gallon of brine:</label>
-            <input name="brineGallonCost" type="number" value="0.21" min="0" step="0.01" required/>
-
-	    	<button id="roi-calculate-button">CALCULATE</button>
-    	</form>
+    	    	<button id="roi-calculate-button">CALCULATE</button>
+        	</form>
+        </div>
 
         <table id="roi-results-table">
             <th>ANNUALIZED SAVINGS</th>
             <tr>
-                <td></td>
-                <td>Yearly Savings</td>
+                <td class="savings-name left">Direct Savings</td>
+                <td class="direct-savings-value right">$</td>
             </tr>
             <tr>
-                <td class="savings-name">Direct Savings</td>
-                <td class="direct-savings-value">$</td>
-            </tr>
-            <tr>
-                <td class="savings-name">Inirect Savings</td>
-                <td class="indirect-savings-value">$</td>
+                <td class="savings-name">Indirect Savings</td>
+                <td class="indirect-savings-value right">$</td>
             </tr>
             <tr class="combined-savings">
-                <td class="savings-name">Combined Savings</td>
-                <td class="combined-savings-value">$</td>
+                <td class="savings-name left">Total Savings</td>
+                <td class="combined-savings-value right">$</td>
+            </tr>
+            <tr class="roi-savings">
+                <td class="roi-name left"><em>Headwaters</em> ROI</td>
+                <td class="roi-savings-value right">%</td>
             </tr>
         </table>
         <span class="roi-full-report">To download full report<span id="roi-show-download-modal">click here.</span></span>
