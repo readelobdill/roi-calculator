@@ -94,8 +94,8 @@ $(function(){
 
             var annualBrineGallons = $(this).find('input[name="annualBrineGallons"]').val();
             var brineMakingFacilities = $(this).find('input[name="brineMakingFacilities"]').val();
-            var costsValue = (annualBrineGallons * 0.045 * 5.33) + (brineMakingFacilities * 10000);
-            var roiValue = (annualDirectSavings + annualIndirectSavings - costsValue) / costsValue;
+            var costsValue = (annualBrineGallons * 0.045 * 5.33) + (brineMakingFacilities * 10000) + (4 * (annualBrineGallons * 0.045 * 5.33));
+            var roiValue = (totalDirectSavings + totalIndirectSavings - costsValue) / costsValue;
             $('#roi-results-table .roi-savings-value').text((roiValue * 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " %");
 
 
