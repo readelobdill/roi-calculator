@@ -115,11 +115,12 @@ $(function(){
     });
 
     $('#roi-pdf-download').on('click', function(){
+        $roiModal = $('#roi-download-modal');
         window.Intercom('boot', {
           app_id: "r0s6gjlm",
-          name:  $(this).find('input[name="firstName"]').val() + " " +  $(this).find('input[name="lastName"]').val(),
-          email: $(this).find('input[name="email"]').val(),
-          phone: $(this).find('input[name="phone"]').val(),
+          name:  $roiModal.find('input[name="firstName"]').val() + " " +  $roiModal.find('input[name="lastName"]').val(),
+          email: $roiModal.find('input[name="email"]').val(),
+          phone: $roiModal.find('input[name="phone"]').val(),
           created_at: Date.now()
         });
         doc = new jsPDF('l');
