@@ -77,7 +77,7 @@ $(function(){
             $('<option></option>', {
                 value: value,
                 text: value
-            }).appendTo($selectBox);    
+            }).appendTo($selectBox);
     });
 
     $('#stateSelector option[value="Montana"]').attr("selected",true);
@@ -94,7 +94,7 @@ $(function(){
 
             var annualBrineGallons = $(this).find('input[name="annualBrineGallons"]').val();
             var brineMakingFacilities = $(this).find('input[name="brineMakingFacilities"]').val();
-            var costsValue = (annualBrineGallons * 0.045 * 5.33) + (brineMakingFacilities * 10000) + (4 * (annualBrineGallons * 0.045 * 5.33));
+            var costsValue = (annualBrineGallons * 0.045 * 4.86) + (brineMakingFacilities * 10000) + (4 * (annualBrineGallons * 0.045 * 4.86));
             var roiValue = (totalDirectSavings + totalIndirectSavings - costsValue) / costsValue;
             $('#roi-results-table .roi-savings-value').text((roiValue * 100).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " %");
 
@@ -144,9 +144,9 @@ $(function(){
         _.times(5, function(index){
             var costsValue;
             if(index === 0){
-                costsValue = (annualBrineGallons * 0.045 * 5.33) + (brineMakingFacilities * 10000);
+                costsValue = (annualBrineGallons * 0.045 * 4.86) + (brineMakingFacilities * 10000);
             } else {
-                costsValue = (annualBrineGallons * 0.045 * 5.33);
+                costsValue = (annualBrineGallons * 0.045 * 4.86);
             }
             graphData.costs.push(costsValue);
 
@@ -188,7 +188,7 @@ $(function(){
 
         doc.text("The tool compares the cost of purchasing and handling the inhibitor to the savings of avoiding corrosion-induced repair and ", 25, 60);
         doc.text("replacement of vehicles, snowfighting equipment and highway infrastructure.", 25, 65);
-        
+
         doc.text("This tool was developed for states to get an initial estimate and is not intended for detailed analysis. For additional detailed ", 25, 75);
         doc.text("analysis please contact Rivertop Renewables at headwaters@rivertop.com.", 25, 80);
 
@@ -518,7 +518,7 @@ $(function(){
             yaxis: {
               tickFormatter: function formatter(val) {
                   return (val >= 0 ? '$' : '-$') + Math.abs(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-              }  
+              }
             },
             canvas: true
         });
@@ -629,7 +629,7 @@ $(function(){
         doc.text(percentage + '%', 105, 74);
 
         doc.text("Indirect", 35, 80);
-        percentage = ((totalIndirectSavings-totalCosts)/totalCosts * 100).toFixed(0);
+        percentage = (((totalDirectSavings+totalIndirectSavings-totalCosts) - (totalDirectSavings-totalCosts))/totalCosts * 100).toFixed(0);
         doc.text(percentage + '%', 105, 80);
 
         doc.setLineWidth(0.75);
@@ -727,11 +727,11 @@ $(function(){
         indirectSavingsTotalsArray = [];
 
         var state = $selectBox.val();
-        state = stateData[state];      
+        state = stateData[state];
         var annualBrineGallons = $(form).find('input[name="annualBrineGallons"]').val();
-        var publicFleetCorrosionSavings = (annualBrineGallons * 2.3 / 2000) * (82.77215322 + 124.07301246) * (state.totalPublicFleet/(state.totalRegisteredVehicles + state.totalPublicFleet)) * 0.7;
-        var vehicleCorrosionSavings = (annualBrineGallons * 2.3 / 2000) * (82.77215322 + 124.07301246) * (state.totalRegisteredVehicles/(state.totalPublicFleet + state.registeredAutos + state.registeredBuses + state.registeredTrucks)) * 0.7;
-        var commercialVehicleCorrosionSavings = (annualBrineGallons * 2.3 / 2000) * 387.83483432 * 0.7;
+        var publicFleetCorrosionSavings = (annualBrineGallons * 4.6 / 2000) * (82.77215322 + 124.07301246) * (state.totalPublicFleet/(state.totalRegisteredVehicles + state.totalPublicFleet)) * 0.7;
+        var vehicleCorrosionSavings = (annualBrineGallons * 4.6 / 2000) * (82.77215322 + 124.07301246) * (state.totalRegisteredVehicles/(state.totalPublicFleet + state.registeredAutos + state.registeredBuses + state.registeredTrucks)) * 0.7;
+        var commercialVehicleCorrosionSavings = (annualBrineGallons * 4.6 / 2000) * 387.83483432 * 0.7;
 
         _.times(numYears, function(index){
             var commerciaVehicleValue = getCommercialVehicleValue(index, commercialVehicleCorrosionSavings);
@@ -833,7 +833,7 @@ $(function(){
 
     var getLaborValue = function(index, annualBrineGallons){
         if(index === 0){
-            return annualBrineGallons * 2.3/ 2000 * 3.65;
+            return annualBrineGallons * 4.6/ 2000 * 3.65;
         } else {
             return (directSavings.labor[index - 1] * inflationRate) + directSavings.labor[index - 1];
         }
@@ -841,7 +841,7 @@ $(function(){
 
     var getRepairsValue = function(index, annualBrineGallons){
         if(index === 0){
-            return annualBrineGallons * 2.3/ 2000 * 6.3;
+            return annualBrineGallons * 4.6/ 2000 * 6.3;
         } else {
             return (directSavings.repairs[index - 1] * inflationRate) + directSavings.repairs[index - 1];
         }
@@ -849,7 +849,7 @@ $(function(){
 
     var getReplacementValue = function(index, annualBrineGallons){
         if(index === 0){
-            return annualBrineGallons * 2.3/ 2000 * 19.98;
+            return annualBrineGallons * 4.6/ 2000 * 19.98;
         } else {
             return (directSavings.replacement[index - 1] * inflationRate) + directSavings.replacement[index - 1];
         }
@@ -857,7 +857,7 @@ $(function(){
 
     var getinfrastructureCorrosionCostValue = function(index, annualBrineGallons){
         if(index === 0){
-            return annualBrineGallons * 2.3/ 2000 * 406.35;
+            return annualBrineGallons * 4.6/ 2000 * 406.35;
         } else {
             return (directSavings.infrastructureCorrosionCosts[index - 1] * inflationRate) + directSavings.infrastructureCorrosionCosts[index - 1];
         }
@@ -878,7 +878,7 @@ $(function(){
 
             context.beginPath();
             context.moveTo(centerX, centerY);
-            context.arc(centerX, centerY, radius, 
+            context.arc(centerX, centerY, radius,
                                     startingAngle, endingAngle, false);
             context.closePath();
 

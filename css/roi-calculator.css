@@ -2,7 +2,7 @@ body{
 	/*background: rgb(235,235,235);*/
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;        /* Firefox, other Gecko */
-	box-sizing: border-box;   
+	box-sizing: border-box;
 }
 #roi-calculator-container{
 	width: 100%;
@@ -44,7 +44,7 @@ body{
 #roi-calculator input, #roi-calculator select{
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;        /* Firefox, other Gecko */
-	box-sizing: border-box;   
+	box-sizing: border-box;
 	width: 100%;
 	margin: 0 auto 15px auto;
 	height: 55px;
@@ -229,7 +229,7 @@ body{
 #roi-download-modal form input{
 	float: left;
 	width: 210px;
-	margin-left: 40px; 
+	margin-left: 40px;
 	margin-bottom: 10px;
 	height: 20px;
 	font-size: 14px;
